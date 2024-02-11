@@ -1,5 +1,5 @@
 # Mapping with Tilesets
-## [Website Link](https://risan-2165658.github.io/maptile_generation-1/)
+## [Website Link](https://risan-2165658.github.io/maptile_generation/)
 In the Mapping with Tilesets project, I developed four distinct tile maps aimed at showcasing different aspects of Japan's landscape and outdoor opportunities. Each tileset offers a unique perspective, ranging from a standard basemap to specialized maps highlighting earthquake data and nature trails across Japan. With a minimum zoom level of 3 and a maximum zoom level of 10, these tilesets provide detailed information while allowing users to explore Japan's geography with ease.
 
 ![tileset 1](img/1.jpg)
