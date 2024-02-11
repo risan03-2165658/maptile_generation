@@ -29,7 +29,7 @@
             margin-left: 20px;
             font-family: 'Open Sans', sans-serif;
             font-size: 25pt;
-            color: hwb(177 39% 11%);
+            color: hwb(133 16% 29%);
         }
         
         #subtitle {
@@ -40,7 +40,7 @@
             margin-left: 20px;
             font-family: 'Open Sans', sans-serif;
             font-size: 15pt;
-            color:hwb(177 39% 11%);
+            color:hwb(133 16% 29%);
         }
 
         #desc {
@@ -50,13 +50,13 @@
             margin-top: 120px;
             margin-left: 20px;
             width: 250px;
-            color:hwb(177 39% 11%);
+            color:hwb(133 16% 29%);
             font-family: 'Open Sans', sans-serif;
         }      
 
         /* layer menu */
         #menu {
-            background: hwb(177 39% 11%);
+            background:hwb(133 16% 29%);
             position: absolute;
             z-index: 1;
             top: 10px;
@@ -87,13 +87,13 @@
 
         /* change color and background color while a pointer is on an hybrid link. */
         #menu a:hover {
-            background-color: hwb(177 39% 11%);
+            background-color: hwb(133 16% 29%);
             color: #404040;
         }
 
         #menu a.active {
             background-color: #3887be;
-            color:hwb(177 39% 11%);
+            color:hwb(133 16% 29%);
         }
 
         #menu a.active:hover {
@@ -121,10 +121,11 @@
         mapboxgl.accessToken = 'pk.eyJ1IjoicmlzYW4wMyIsImEiOiJjbHB2cGs4M2QwM2R2MmtwZGdrZ3VpOW9kIn0.Gt_hhmTyzCE7wV3Mes7tfQ';
         const map = new mapboxgl.Map({
             container: 'map', // container ID
-            center: [138.2529, 36.2048], // starting position [lng, lat]
-            zoom: 7, // starting zoom
+            center: [140.2529, 35.6048], // starting position [lng, lat]
+            zoom: 8, // starting zoom
             style: 'mapbox://styles/mapbox/light-v10'
         });
+
 
         map.on('load', () => { //simplifying the function statement: arrow with brackets to define a function
 
@@ -134,7 +135,7 @@
                     'assets/tilesets1/{z}/{x}/{y}.png'
                 ],
                 'tileSize': 240,
-                'attribution': 'Map tiles designed by NQ</a>'
+                'attribution': 'Map tiles designed by Risa</a>'
             });
 
             map.addSource('tilesets2-tiles', {
@@ -143,7 +144,7 @@
                     'assets/tilesets2/{z}/{x}/{y}.png'
                 ],
                 'tileSize': 240,
-                'attribution': 'Map tiles designed by NQ</a>'
+                'attribution': 'Map tiles designed by Risa</a>'
             });
 
             map.addSource('tilesets3-tiles', {
@@ -152,7 +153,7 @@
                     'assets/tilesets3/{z}/{x}/{y}.png'
                 ],
                 'tileSize': 240,
-                'attribution': 'Map tiles designed by NQ</a>'
+                'attribution': 'Map tiles designed by Risa</a>'
             });
 
             map.addSource('tilesets4-tiles', {
@@ -161,7 +162,7 @@
                     'assets/tilesets4/{z}/{x}/{y}.png'
                 ],
                 'tileSize': 240,
-                'attribution': 'Map tiles designed by NQ</a>'
+                'attribution': 'Map tiles designed by Risa</a>'
             });
 
             map.addLayer({
