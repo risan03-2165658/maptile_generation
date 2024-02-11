@@ -8,7 +8,6 @@ Here is the link to the website:
 ![tileset 1](img/1.jpg)
 > The first tileset features a custom basemap created by modifying colors and fonts from the default Mapbox Monochrome Style. This tailored approach enhances the visual appeal and usability of the map.
 
-  
 ![tileset 2](img/2.jpg)
 > The second titleset focuses on showcasing the earthquake incident in Japan, using the data from lab 3. 
 

@@ -222,55 +222,76 @@
             const toggleableLayerIds = ['tilesets1', 'tilesets2', 'tilesets3', 'tilesets4'];
 
             // Set up the corresponding toggle button for each layer.
-            for (const id of toggleableLayerIds) {
-                // Skip layers that already have a button set up.
-                if (document.getElementById(id)) {
-                    continue;
-                }
+// Set up the corresponding toggle button for each layer.
+        for (const id of toggleableLayerIds) {
+            // Skip layers that already have a button set up.
+            if (document.getElementById(id)) {
+                continue;
+            }
 
-                // Create a link.
-                const link = document.createElement('a');
-                link.id = id;
-                link.href = '#';
-                link.textContent = id;
-                link.className = 'inactive';
+            // Create a link.
+            const link = document.createElement('a');
+            link.id = id;
+            link.href = '#';
 
-                // Show or hide layer when the toggle is clicked.
-                link.onclick = function (e) {
-                    const clickedLayer = this.textContent;
-                    // preventDefault() tells the user agent that if the event does not get explicitly handled, 
-                    // its default action should not be taken as it normally would be.
-                    e.preventDefault();
-                    // The stopPropagation() method prevents further propagation of the current event in the capturing 
-                    // and bubbling phases. It does not, however, prevent any default behaviors from occurring; 
-                    // for instance, clicks on links are still processed. If you want to stop those behaviors, 
-                    // see the preventDefault() method.
-                    e.stopPropagation();
+            // Set the name displayed on the menu for each layer
+            if (id === 'tilesets1') {
+                link.textContent = 'Basemap';
+            } else if (id === 'tilesets2') {
+                link.textContent = 'Modified Map';
+            } else if (id === 'tilesets3') {
+                link.textContent = 'Earthquake Map';
+            } else if (id === 'tilesets4') {
+                link.textContent = 'Trails for Emergency';
+            }
 
-                    const visibility = map.getLayoutProperty(
-                        clickedLayer,
-                        'visibility'
-                    );
+            link.className = 'inactive';
 
-                    // Toggle layer visibility by changing the layout object's visibility property.
-                    // if it is currently visible, after the clicking, it will be turned off.
-                    if (visibility === 'visible') {
-                        map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-                        this.className = '';
-                    } else { //otherise, it will be turned on.
-                        this.className = 'active';
-                        map.setLayoutProperty(
-                            clickedLayer,
-                            'visibility',
-                            'visible'
-                        );
-                    }
-                };
+            // Show or hide layer when the toggle is clicked.
+            link.onclick = function (e) {
+            const layerName = this.textContent; // Get the displayed layer name
+            const layerId = getLayerIdByName(layerName); // Get the corresponding layer ID
+            e.preventDefault();
+            e.stopPropagation();
 
-                // in the menu place holder, insert the layer links.
-                const layers = document.getElementById('menu');
-                layers.appendChild(link);
-            }               
+            const visibility = map.getLayoutProperty(
+                layerId,
+                'visibility'
+            );
+
+            if (visibility === 'visible') {
+                map.setLayoutProperty(layerId, 'visibility', 'none');
+                this.className = '';
+            } else {
+                this.className = 'active';
+                map.setLayoutProperty(
+                    layerId,
+                    'visibility',
+                    'visible'
+                );
+            }
+        };
+
+function getLayerIdByName(layerName) {
+    switch (layerName) {
+        case 'Basemap':
+            return 'tilesets1';
+        case 'Modified Map':
+            return 'tilesets2';
+        case 'Earthquake Map':
+            return 'tilesets3';
+        case 'Trails during Emergency':
+            return 'tilesets4';
+        default:
+            return null;
+    }
+            };
+
+            // in the menu place holder, insert the layer links.
+            const layers = document.getElementById('menu');
+            layers.appendChild(link);
+        }
+              
         });
     </script>
 
