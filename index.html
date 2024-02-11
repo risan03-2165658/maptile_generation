@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Map of Japan</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.js"></script>
+
+    <style>
+        body { 
+            margin: 0;
+            padding: 0; 
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #title {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin-top: 20px;
+            margin-left: 20px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 25pt;
+            color: hwb(177 39% 11%);
+        }
+        
+        #subtitle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin-top: 70px;
+            margin-left: 20px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 15pt;
+            color:hwb(177 39% 11%);
+        }
+
+        #desc {
+            position: absolute;
+            top: 0;
+            height: 180px;
+            margin-top: 120px;
+            margin-left: 20px;
+            width: 250px;
+            color:hwb(177 39% 11%);
+            font-family: 'Open Sans', sans-serif;
+        }      
+
+        /* layer menu */
+        #menu {
+            background: hwb(177 39% 11%);
+            position: absolute;
+            z-index: 1;
+            top: 10px;
+            right: 10px;
+            border-radius: 3px;
+            width: 120px;
+            border: 1px solid rgba(0, 0, 0, 0.4);
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        /* each layer on the menu */
+        #menu a {
+            font-size: 13px;
+            color: #404040;
+            display: block;
+            margin: 0;
+            padding: 0;
+            padding: 10px;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+            text-align: center;
+        }
+
+        /* the last item of the layer items will not include a separator */
+        #menu a:last-child {
+            border: none;
+        }
+
+        /* change color and background color while a pointer is on an hybrid link. */
+        #menu a:hover {
+            background-color: hwb(177 39% 11%);
+            color: #404040;
+        }
+
+        #menu a.active {
+            background-color: #3887be;
+            color:hwb(177 39% 11%);
+        }
+
+        #menu a.active:hover {
+            background: #3074a4;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="menu"></nav>
+    <div id="map"></div>
+    <div id="title">
+        Map of Japan
+    </div>
+    <div id="subtitle">
+        Created by Risa Nabari 
+    </div>
+    <div id="desc">
+        This map uses tilesets to display a basemap of Japan,
+        modified basemap of Japan, Earthquake in Japan 
+        on a modified basemap, and tilemap4 with shows the trails in Japan 
+        to highlight escape past in the nature.
+    </div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoicmlzYW4wMyIsImEiOiJjbHB2cGs4M2QwM2R2MmtwZGdrZ3VpOW9kIn0.Gt_hhmTyzCE7wV3Mes7tfQ';
+        const map = new mapboxgl.Map({
+            container: 'map', // container ID
+            center: [138.2529, 36.2048], // starting position [lng, lat]
+            zoom: 7, // starting zoom
+            style: 'mapbox://styles/mapbox/light-v10'
+        });
+
+        map.on('load', () => { //simplifying the function statement: arrow with brackets to define a function
+
+            map.addSource('tilesets1-tiles', {
+                'type': 'raster',
+                'tiles': [
+                    'assets/tilesets1/{z}/{x}/{y}.png'
+                ],
+                'tileSize': 240,
+                'attribution': 'Map tiles designed by NQ</a>'
+            });
+
+            map.addSource('tilesets2-tiles', {
+                'type': 'raster',
+                'tiles': [
+                    'assets/tilesets2/{z}/{x}/{y}.png'
+                ],
+                'tileSize': 240,
+                'attribution': 'Map tiles designed by NQ</a>'
+            });
+
+            map.addSource('tilesets3-tiles', {
+                'type': 'raster',
+                'tiles': [
+                    'assets/tilesets3/{z}/{x}/{y}.png'
+                ],
+                'tileSize': 240,
+                'attribution': 'Map tiles designed by NQ</a>'
+            });
+
+            map.addSource('tilesets4-tiles', {
+                'type': 'raster',
+                'tiles': [
+                    'assets/tilesets4/{z}/{x}/{y}.png'
+                ],
+                'tileSize': 240,
+                'attribution': 'Map tiles designed by NQ</a>'
+            });
+
+            map.addLayer({
+                'id': 'tilesets1',
+                'type': 'raster',
+                'layout': {
+                    'visibility': 'none'
+                    // Uncomment the line above will hide this map layer at first.
+                    // This will be useful when you have multiple layers added to your map.
+                },
+                'source': 'tilesets1-tiles'
+            });
+
+            map.addLayer({
+                'id': 'tilesets2',
+                'type': 'raster',
+                'layout': {
+                    'visibility': 'none'
+                    // Uncomment the line above will hide this map layer at first.
+                    // This will be useful when you have multiple layers added to your map.
+                },
+                'source': 'tilesets2-tiles'
+            });
+
+            map.addLayer({
+                'id': 'tilesets3',
+                'type': 'raster',
+                'layout': {
+                    'visibility': 'none'
+                    // Uncomment the line above will hide this map layer at first.
+                    // This will be useful when you have multiple layers added to your map.
+                },
+                'source': 'tilesets3-tiles'
+            });
+
+            map.addLayer({
+                'id': 'tilesets4',
+                'type': 'raster',
+                'layout': {
+                    'visibility': 'none'
+                    // Uncomment the line above will hide this map layer at first.
+                    // This will be useful when you have multiple layers added to your map.
+                },
+                'source': 'tilesets4-tiles'
+            });
+
+        });
+
+        // idle screen
+        map.on('idle', () => {
+            // If these four layers were not added to the map, abort
+            if (!map.getLayer('tilesets1') || !map.getLayer('tilesets2') || !map.getLayer('tilesets3') || !map.getLayer('tilesets4')) {
+                return;
+            }
+            
+            // Enumerate ids of the layers.
+            const toggleableLayerIds = ['tilesets1', 'tilesets2', 'tilesets3', 'tilesets4'];
+
+            // Set up the corresponding toggle button for each layer.
+            for (const id of toggleableLayerIds) {
+                // Skip layers that already have a button set up.
+                if (document.getElementById(id)) {
+                    continue;
+                }
+
+                // Create a link.
+                const link = document.createElement('a');
+                link.id = id;
+                link.href = '#';
+                link.textContent = id;
+                link.className = 'inactive';
+
+                // Show or hide layer when the toggle is clicked.
+                link.onclick = function (e) {
+                    const clickedLayer = this.textContent;
+                    // preventDefault() tells the user agent that if the event does not get explicitly handled, 
+                    // its default action should not be taken as it normally would be.
+                    e.preventDefault();
+                    // The stopPropagation() method prevents further propagation of the current event in the capturing 
+                    // and bubbling phases. It does not, however, prevent any default behaviors from occurring; 
+                    // for instance, clicks on links are still processed. If you want to stop those behaviors, 
+                    // see the preventDefault() method.
+                    e.stopPropagation();
+
+                    const visibility = map.getLayoutProperty(
+                        clickedLayer,
+                        'visibility'
+                    );
+
+                    // Toggle layer visibility by changing the layout object's visibility property.
+                    // if it is currently visible, after the clicking, it will be turned off.
+                    if (visibility === 'visible') {
+                        map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+                        this.className = '';
+                    } else { //otherise, it will be turned on.
+                        this.className = 'active';
+                        map.setLayoutProperty(
+                            clickedLayer,
+                            'visibility',
+                            'visible'
+                        );
+                    }
+                };
+
+                // in the menu place holder, insert the layer links.
+                const layers = document.getElementById('menu');
+                layers.appendChild(link);
+            }               
+        });
+    </script>
+
+</body>
+</html>
