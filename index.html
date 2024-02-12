@@ -242,7 +242,7 @@
             } else if (id === 'tilesets3') {
                 link.textContent = 'Earthquake Map';
             } else if (id === 'tilesets4') {
-                link.textContent = 'Trails for Emergency';
+                link.textContent = 'Trails during Emergency';
             }
 
             link.className = 'inactive';
@@ -272,19 +272,19 @@
             }
         };
 
-function getLayerIdByName(layerName) {
-    switch (layerName) {
-        case 'Basemap':
-            return 'tilesets1';
-        case 'Modified Map':
-            return 'tilesets2';
-        case 'Earthquake Map':
-            return 'tilesets3';
-        case 'Trails during Emergency':
-            return 'tilesets4';
-        default:
-            return null;
-    }
+    function getLayerIdByName(layerName) {
+        switch (layerName) {
+            case 'Basemap':
+                return 'tilesets1';
+            case 'Modified Map':
+                return 'tilesets2';
+            case 'Earthquake Map':
+                return 'tilesets3';
+            case 'Trails during Emergency':
+                return 'tilesets4';
+            default:
+                return null;
+        }
             };
 
             // in the menu place holder, insert the layer links.
