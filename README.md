@@ -6,13 +6,13 @@ Here is the link to the website:
 ## [Website Link](https://risan03-2165658.github.io/maptile_generation/)
 
 ![tileset 1](img/1.jpg)
-> The first tileset features a custom basemap created by modifying colors and fonts from the default Mapbox Monochrome Style. This tailored approach enhances the visual appeal and usability of the map.
+> The first tileset features a custom basemap created by modifying colors and fonts from the default Mapbox Monochrome Style. This tailored approach enhances the visual appeal and usability of the map as it is simple and easy to see (the customized color is blue used to indicate the water). 
 
 ![tileset 2](img/2.jpg)
-> The second titleset focuses on showcasing the earthquake incident in Japan, using the data from lab 3. 
+> The second titleset focuses on showcasing the earthquake incident in Japan, using the data from lab 3. I wanted to see how I can use this data on this application so that it can help users to learn the pattern or distribution and provide information on incidents to either prevent or prepare for these natural disasters. 
 
 ![tileset 3](img/3.jpg)
 > This tileset combines elements from the first two maps, offering users a comprehensive view of Japan's earthquake incident with a simple basemap to be easily comprehended by the users. 
 
 ![tileset 4](img/4.jpg)
-> The fourth tileset is a specialized creation designed to showcase earthquake incidents in Japan, with trails highlighted in red to aid in evacuation planning. By emphasizing the path to safety during hazardous incidents, users can easily identify evacuation routes and make informed decisions. Additionally, the map displays elevation data, allowing users to assess the terrain and plan their evacuation routes accordingly, particularly in hilly areas where height levels play a crucial role in determining safe pathways.
+> The fourth tileset is a specialized creation designed to showcase earthquake incidents in Japan, with trails highlighted in red to aid in evacuation planning. By emphasizing the path to safety during hazardous incidents, users can easily identify evacuation routes and make informed decisions. Additionally, the map displays elevation data, allowing users to assess the terrain and plan their evacuation routes accordingly, particularly in hilly areas where height levels play a crucial role in determining safe pathways. For example, after a Tsunami, the user could easily follow the pathway colored in red (this color choice is used to emphasize and contrast the background color). In additions, the icons provides more information of the surrounding area. 
